@@ -1,0 +1,137 @@
+
+
+/* NAV BAR */
+nav{
+    background-color: rgb(62, 65, 62);
+    height: 7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+	
+}
+
+
+
+.introWrapper{
+    display: flex;
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+.intro{
+    margin-left: 2.5rem;
+    margin-right: 1rem;
+    font-size: 3rem;
+    color: wheat;
+ 
+
+}
+
+svg{
+    color: wheat;
+}
+
+
+
+
+.wrapper{
+    display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+}
+
+main{
+    margin: 5rem;
+}
+
+a{
+    text-decoration: none;
+    color: wheat;
+    padding: 1.6rem;
+    font-size: 1.2rem;
+}
+
+a:hover{
+    color: beige;
+}
+li{
+    display: inline-block;
+}
+
+.sign{
+    margin-left: 10rem;
+    margin-right: 3.5rem;
+    display: flex;
+    align-items: center;
+    color: wheat;
+    font-size: 1.3rem;
+}
+/* CREATE CARD */
+
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.infoLabel{
+    font-size: 1.4rem;
+    padding: .5rem;
+}
+
+#id_title, #id_description,#id_bid, #id_url {
+    width: 30rem;
+    padding: .5rem;
+    border-radius: .2rem;
+    border: 1px solid grey;
+}
+
+#id_title:focus, #id_description:focus,#id_bid:focus, #id_url:focus{
+    background-color: rgba(182, 226, 110, 0.164);
+    border: 1px solid grey;
+}
+
+
+
+.createButton{
+    padding: 1rem;
+    width: 5rem;
+    border-radius: .2rem;
+    border-style: none;
+    background-color: wheat;
+}
+
+.card{
+
+    margin: 1rem;
+}
+
+
+/* ENTRY */
+
+
+.cover{
+    padding: 1rem;
+    font-size: 1.2rem;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-radius: .2rem;
+
+}
+
+select #id_tags{
+    width: 15rem;
+}
+
+img{
+    width: 5rem;
+}

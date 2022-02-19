@@ -1,0 +1,132 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<div class="cover">
+  
+
+
+
+
+
+
+    <div> 
+        {% if user.is_authenticated %}
+
+        <form class="" action="{% url 'createWatchlist' element.title %}" method="POST">
+              {% csrf_token %}
+            <input class="btn btn-info my-3" value="Add to Watchlist" type="submit" name="" id="">
+        
+        </form>
+
+        {% else %}
+            
+        {% endif %}
+    </div>
+    <img src="{{ MEDIA_URL }}{{ element.url }}" class="card-img-top" alt="...">
+
+    <div>Title: {{ element.title }} </div> 
+    <div> Description: {{ element.description }}</div> 
+    <div>  Bid:  
+             
+    <span class="bid"> <b> {{ element.startingBid }} $ from current bidder User: ({{element.currentbidder}}) </b>
+
+
+
+               
+
+     
+    </span> 
+
+        <br>
+
+        {% if user.is_authenticated %}
+
+                    {% if element.closing %}
+
+                    {% else %}
+                    <a class="btn btn-dark" href="{% url 'bid-to' element.title %}">Go To Bidding </a>  
+
+                    {% endif %}
+
+        {% else %}
+            
+        {% endif %}
+
+
+        {% if element.user == profile %}
+
+
+        {% if element.closing %}
+        {% else %}
+
+        <a href="{% url 'closeBid' element.title %}"><button class="btn btn-warning">  Close it!</button> </a>
+        {% endif %}
+
+
+
+        {% else %}
+                
+        {% endif %}
+
+
+<!-- PROBE  -->
+
+
+
+
+
+
+
+                
+     </div> 
+
+    <div> 
+        <i>{{ element.tags }}</i>
+    </div>
+    <p class="card-text"> <b> By {{element.user}} </b> </p>
+
+    {% for comment in element.comment_set.all %}
+
+    <div class="mb-3">
+
+
+        <p class="h5">FROM {{comment.user}} - {{comment.date}}</p>
+
+     
+
+      </div>
+      <div class="mb-3">
+        <textarea readonly class="form-control" id="" rows="3"> {{comment.comment}}</textarea>
+      </div>
+
+      {% endfor %}
+
+
+
+
+         
+      
+    
+      </div>
+
+</div>
+
+
+<div class="cover">
+    {% if user.is_authenticated %}
+
+    <form class="" action="" method="POST">
+        {% csrf_token %}
+       <!-- {{form.listToComment}} -->
+        {{form.comment}}
+
+        <input class="createButton" type="submit" name="" id="">
+    
+    </form>
+    {% endif %}
+
+  </div>
+
+
+{% endblock %}

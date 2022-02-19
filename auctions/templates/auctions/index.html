@@ -1,0 +1,48 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block body %}
+
+{% block css %} <link href="{% static 'auctions/base.css' %}" rel="stylesheet">  {% endblock %}   
+
+
+
+<h2 class="text-center my-5">Active Listings</h2>
+
+<div class="container">
+<div class="row row-cols-3">
+
+{% for element in elements %}
+
+
+<div class="card" style="width: 25rem;">
+    <img src="{{ MEDIA_URL }}{{ element.url }}" class="card-img-top" alt="...">
+    
+    
+    <div class="card-body">
+
+      <h5 class="card-title"> Title: {{ element.title }}</h5>
+      <p class="card-text"> Description: {{ element.description }}</p>
+      <p class="card-text">    Bid: {{ element.startingBid }}$ </p>
+
+      <p class="card-text">Tag: {{element.tags.name}}</p>
+      <p class="card-text"> <b> By {{element.user}} </b> </p>
+
+     
+      <a href="{% url 'entry' element %}" class="btn btn-warning">View</a>
+    </div>
+    
+  </div>
+
+
+
+  {% endfor %}
+
+
+</div>
+</div>
+
+
+
+
+{% endblock %}

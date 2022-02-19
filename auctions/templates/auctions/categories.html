@@ -1,0 +1,47 @@
+{% extends "auctions/layout.html" %}
+
+
+
+ {% block body %}
+
+ 
+<form method="get">
+  {% csrf_token %}
+   {{myFilter.form}} 
+   
+
+
+
+  <input class="createButton mt-4" type="submit" value="Search">
+
+</form>
+
+
+<div class="container">
+  <div class="row row-cols-3">
+ {% for multi in multis %}
+
+ 
+<div class="card" style="width: 18rem;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title"> Title: {{ multi.title }}</h5>
+      <p class="card-text"> Description: {{ multi.description }}</p>
+      <p class="card-text">    Bid: {{ multi.bid }}$ </p>
+      <p class="card-text">    URL: {{ multi.url }}</p>
+      <p class="card-text">Tag: {{multi.tags.name}}</p>
+      <p class="card-text"> User: {{multi.user}}</p>
+
+      <a href="{% url 'entry' multi %}" class="btn btn-warning">View</a>
+
+      
+    </div>
+  </div>
+
+
+
+  {% endfor %}
+   
+</div>
+</div>
+{% endblock %}

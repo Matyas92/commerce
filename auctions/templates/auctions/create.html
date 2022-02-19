@@ -1,0 +1,22 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Create a New Page
+{% endblock %}
+
+
+
+{% block body %}
+
+<h1 class="text-center mb-4">Create a List</h1>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+
+
+        <input class="createButton" type="submit" name="" id="">
+
+      </form>
+
+{% endblock %}
